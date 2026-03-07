@@ -1,0 +1,193 @@
+/* ============================================
+   THEOPHYSICS CONTENT CALLOUTS v1.0
+   Framework-specific collapsible reference tags
+   
+   USE: > [!axiom]- A2.2 Self-Grounding
+   >    Content expands on click.
+   
+   Extends: Theophysics callouts v1.1.css
+   ============================================ */
+
+/* --- AXIOM (blue, anchored) --- */
+.callout[data-callout="axiom"] {
+  --callout-color: 96, 165, 250;
+  --callout-icon: lucide-atom;
+  background-color: rgba(30, 58, 138, 0.2);
+  border-left: 4px solid #60a5fa;
+  font-size: 0.95em;
+}
+.callout[data-callout="axiom"] .callout-title {
+  color: #93c5fd;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* --- LAW (gold, authoritative) --- */
+.callout[data-callout="law"] {
+  --callout-color: 234, 179, 8;
+  --callout-icon: lucide-scale;
+  background-color: rgba(113, 63, 3, 0.2);
+  border-left: 4px solid #eab308;
+}
+.callout[data-callout="law"] .callout-title {
+  color: #fbbf24;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9em;
+}
+
+/* --- EVIDENCE (green, empirical) --- */
+.callout[data-callout="evidence"] {
+  --callout-color: 34, 197, 94;
+  --callout-icon: lucide-bar-chart-3;
+  background-color: rgba(5, 46, 22, 0.25);
+  border-left: 4px solid #22c55e;
+}
+.callout[data-callout="evidence"] .callout-title {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+/* --- HYPOTHESIS (cyan, testable) --- */
+.callout[data-callout="hypothesis"] {
+  --callout-color: 6, 182, 212;
+  --callout-icon: lucide-flask-round;
+  background-color: rgba(8, 51, 68, 0.25);
+  border-left: 4px solid #06b6d4;
+}
+.callout[data-callout="hypothesis"] .callout-title {
+  color: #22d3ee;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* --- PREDICTION (teal, forward-looking) --- */
+.callout[data-callout="prediction"] {
+  --callout-color: 20, 184, 166;
+  --callout-icon: lucide-target;
+  background-color: rgba(13, 56, 51, 0.25);
+  border-left: 4px solid #14b8a6;
+  border-left-style: dashed;
+}
+.callout[data-callout="prediction"] .callout-title {
+  color: #2dd4bf;
+  font-weight: 600;
+}
+
+/* --- FALSIFICATION (red, critical) --- */
+.callout[data-callout="falsification"] {
+  --callout-color: 239, 68, 68;
+  --callout-icon: lucide-shield-x;
+  background-color: rgba(69, 10, 10, 0.25);
+  border-left: 4px solid #ef4444;
+  border-left-style: dashed;
+}
+.callout[data-callout="falsification"] .callout-title {
+  color: #f87171;
+  font-weight: 700;
+}
+
+/* --- CONVERGENCE (purple, cross-domain) --- */
+.callout[data-callout="convergence"] {
+  --callout-color: 168, 85, 247;
+  --callout-icon: lucide-git-merge;
+  background-color: rgba(59, 21, 100, 0.25);
+  border-left: 4px solid #a855f7;
+}
+.callout[data-callout="convergence"] .callout-title {
+  color: #c084fc;
+  font-weight: 600;
+}
+
+/* --- EQUATION (dark, mathematical) --- */
+.callout[data-callout="equation"] {
+  --callout-color: 148, 163, 184;
+  --callout-icon: lucide-sigma;
+  background-color: rgba(15, 23, 42, 0.4);
+  border-left: 4px solid #64748b;
+  font-family: var(--font-monospace);
+}
+.callout[data-callout="equation"] .callout-title {
+  color: #cbd5e1;
+  font-weight: 600;
+  font-family: var(--font-monospace);
+}
+
+/* --- TIMEWALL (amber warning, sacred boundary) --- */
+.callout[data-callout="timewall"] {
+  --callout-color: 245, 158, 11;
+  --callout-icon: lucide-alert-triangle;
+  background-color: rgba(120, 53, 0, 0.2);
+  border-left: 4px solid #f59e0b;
+  border-right: 4px solid #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.15);
+}
+.callout[data-callout="timewall"] .callout-title {
+  color: #fbbf24;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* --- ISOMORPHISM (split border, dual-nature) --- */
+.callout[data-callout="isomorphism"] {
+  --callout-color: 129, 140, 248;
+  --callout-icon: lucide-copy-check;
+  background: linear-gradient(
+    90deg,
+    rgba(30, 58, 138, 0.15) 0%,
+    rgba(59, 21, 100, 0.15) 100%
+  );
+  border-left: 4px solid #818cf8;
+}
+.callout[data-callout="isomorphism"] .callout-title {
+  color: #a5b4fc;
+  font-weight: 700;
+}
+
+/* --- COLLAPSED STATE STYLING --- */
+/* When collapsed (minus sign), show compact */
+.callout.is-collapsed {
+  padding-bottom: 0;
+}
+.callout.is-collapsed .callout-content {
+  display: none;
+}
+
+/* --- DARK MODE ENHANCEMENTS --- */
+.theme-dark .callout[data-callout="axiom"] {
+  background-color: rgba(30, 58, 138, 0.3);
+}
+.theme-dark .callout[data-callout="law"] {
+  background-color: rgba(113, 63, 3, 0.3);
+}
+.theme-dark .callout[data-callout="evidence"] {
+  background-color: rgba(5, 46, 22, 0.35);
+}
+.theme-dark .callout[data-callout="hypothesis"] {
+  background-color: rgba(8, 51, 68, 0.35);
+}
+.theme-dark .callout[data-callout="prediction"] {
+  background-color: rgba(13, 56, 51, 0.35);
+}
+.theme-dark .callout[data-callout="falsification"] {
+  background-color: rgba(69, 10, 10, 0.35);
+}
+.theme-dark .callout[data-callout="convergence"] {
+  background-color: rgba(59, 21, 100, 0.35);
+}
+.theme-dark .callout[data-callout="equation"] {
+  background-color: rgba(15, 23, 42, 0.5);
+}
+.theme-dark .callout[data-callout="timewall"] {
+  background-color: rgba(120, 53, 0, 0.3);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}
+.theme-dark .callout[data-callout="isomorphism"] {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 58, 138, 0.25) 0%,
+    rgba(59, 21, 100, 0.25) 100%
+  );
+}

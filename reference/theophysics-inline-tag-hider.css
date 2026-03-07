@@ -1,0 +1,37 @@
+/* ============================================
+   THEOPHYSICS INLINE TAG HIDER v1.0
+   Hides Dataview inline fields in Reading Mode
+   so tags are invisible to readers but
+   fully queryable by Dataview/knowledge graph.
+   
+   Tags remain visible in Edit Mode for authors.
+   ============================================ */
+
+/* Hide inline Dataview fields in Reading Mode */
+.is-reading-view .dataview.inline-field {
+  display: none !important;
+}
+
+/* Alternative: show as tiny subtle badges on hover */
+/* Uncomment this block and comment the block above
+   if you want tags to appear on hover instead of hidden */
+/*
+.is-reading-view .dataview.inline-field {
+  opacity: 0;
+  font-size: 0.6em;
+  color: var(--text-muted);
+  transition: opacity 0.2s;
+  vertical-align: super;
+}
+.is-reading-view .dataview.inline-field:hover,
+.is-reading-view p:hover .dataview.inline-field {
+  opacity: 0.6;
+}
+*/
+
+/* Style for Edit Mode - make tags visually distinct but unobtrusive */
+.cm-s-obsidian .cm-hmd-barelink {
+  color: #4a5568;
+  font-size: 0.85em;
+  opacity: 0.5;
+}

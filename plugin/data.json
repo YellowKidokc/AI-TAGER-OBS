@@ -1,0 +1,71 @@
+{
+  "aiProvider": "openai",
+  "apiKey": "",
+  "apiEndpoint": "https://api.openai.com/v1/chat/completions",
+  "modelName": "gpt-4o-mini",
+  "prompts": {
+    "Axiom": "Identify foundational axioms in this document. In this framework, axioms are self-evident truths that require no prior proof and serve as load-bearing foundations for derived claims. Look for statements that: (1) assert existence, distinction, or conservation principles, (2) ground the relationship between physics and theology as dual projections of a single substrate, (3) establish properties of consciousness, the Logos field, moral realism, or observer requirements, (4) map to the tiered axiom system (A1.x through A13.x, BC, D, E, L, R, T prefixes). Flag whether each axiom is foundational (cannot be removed without framework collapse) or derived (depends on other axioms). Return each with a precise label and note any parent axiom it extends.",
+    "Claim": "Identify claims asserted by the author. A claim is a proposition that can be supported, refuted, or falsified — distinct from axioms which are foundational. In this framework, look for: (1) theoretical claims about consciousness, quantum mechanics, theology, or their unification, (2) mathematical claims about the Master Equation χ = ∭(G·M·E·S·T·K·R·Q·F·C)dxdydt or its components, (3) interpretive claims mapping physical phenomena to spiritual realities, (4) predictive claims that could be experimentally tested, (5) claims about the Ten Laws or their symmetry pairs (1↔8, 2↔9, 3↔10, 4↔7, 5↔6). For each claim, note whether it is derived from axioms, supported by evidence, or speculative. Flag claims that lack explicit derivation chains.",
+    "EvidenceBundle": "Identify evidence supporting claims or axioms. Evidence includes empirical data, experimental results, statistical analyses, citations, logical arguments, or mathematical proofs. In this framework, pay special attention to: (1) PEAR-LAB results (2.5M trials, 6.35σ significance), (2) Global Consciousness Project data (325+ replicas, 6σ through 2010), (3) PROP-COSMOS analysis (11/11 correlations, 5.7σ), (4) QRNG experimental protocols, (5) EEG coherence studies, (6) mathematical derivations from the Master Equation or Lowe Coherence Lagrangian, (7) Biblical-physics timeline correlations, (8) citations from peer-reviewed literature. For each evidence bundle, note the sigma level or confidence if stated, what claim it supports, and whether it is primary (original analysis) or secondary (cited from external source).",
+    "ScientificProcess": "Identify scientific methodologies, experimental protocols, or analytical procedures described in the text. In this framework, look for: (1) quantum random number generator (QRNG) protocols, (2) EEG coherence mapping procedures, (3) double-slit prayer intervention experiments, (4) entangled particle protocols, (5) GCP integration methods, (6) statistical analysis procedures (chi-square, Bonferroni, Bayesian), (7) falsification criteria — what would break a claim, (8) the Prosecution Protocol (systematic adversarial testing of axioms), (9) contradiction detection methodology, (10) cross-domain coherence metrics. For each process, note whether it is proposed, in-progress, or completed, and what claim or axiom it tests.",
+    "Relationship": "Identify structural relationships between concepts, not just surface-level mentions together. In this framework, look for: (1) cross-domain isomorphisms — where physics and theology share identical logical architecture (not just metaphorical similarity), (2) Ten Laws symmetry pairs and how they constrain each other, (3) Master Equation variable interactions (G·M·E·S·T·K·R·Q·F·C), (4) axiom dependency chains — which axioms require which, (5) claim-evidence linkages, (6) the Logos-consciousness-physics triangle, (7) entropy-grace dynamics, (8) observer-collapse-free will connections. Flag whether each relationship is structural (constrains predictions in both domains) or analogical (suggestive but not predictive). Structural relationships are high-value; analogies that don't constrain predictions should be labeled as such.",
+    "InternalLink": "Identify references to other notes, papers, sections, or concepts within this vault. Look for: (1) references to numbered Logos Papers (Paper 1-12), (2) axiom cross-references (A1.1, BC7.1, D2.1, etc.), (3) references to the Ten Laws by number or name, (4) mentions of Master Equation components, (5) references to experimental protocols by name, (6) links to canonical documents in O:\\Theophysics_Data\\, (7) mentions of prior sessions or conversations. Return each with the target concept and the nature of the reference (supports, extends, contradicts, requires).",
+    "ExternalLink": "Identify references to external sources, literature, URLs, or citations outside this vault. Look for: (1) peer-reviewed physics papers, (2) theological texts and scripture references, (3) Stanford Encyclopedia of Philosophy entries, (4) experimental datasets (PEAR, GCP), (5) URLs to theophysics.pro, faiththruphysics.com, or external databases, (6) references to specific scientists, theologians, or philosophers and their work. Return each with the source name and how it relates to the framework — does it support, challenge, or provide context?",
+    "ProperName": "Identify proper names of people, places, organizations, scriptures, or specific entities. In this framework, pay special attention to: (1) physicists and their contributions (Penrose, Stapp, Bohm, etc.), (2) theologians and their arguments (Aquinas, Augustine, Barth, etc.), (3) Biblical figures and events with physics-mapped significance, (4) institutions (PEAR Lab at Princeton, Global Consciousness Project, etc.), (5) specific scripture references (book, chapter, verse), (6) framework-specific named concepts (David Effect, Lowe Coherence Lagrangian, Logos Field, etc.). Return each with context about their role in the framework.",
+    "ForwardLink": "Identify concepts or topics that require further development, are flagged for future papers, or represent open questions. In this framework, look for: (1) topics deferred to later Logos Papers (especially Papers 9-10 on the Moral Conservation Equation), (2) experimental protocols proposed but not yet executed, (3) mathematical derivations stated without full proof, (4) cross-domain connections noted but not yet formally established, (5) questions raised but not answered, (6) gaps identified by the Prosecution Protocol, (7) concepts marked as speculative awaiting validation. Return each with the suggested next action and which paper or workstream it belongs to.",
+    "WordOntology": "Identify specialized terminology and map it to its definition and category within the Theophysics framework. Key terms include: (1) Master Equation variables — G(Grace), M(Moral Weight), E(Entropy), S(Spiritual State), T(Time/Kairos), K(Knowledge), R(Relational), Q(Quantum Choice), F(Faith), C(Consciousness/Christ), (2) operators — χ (coherence), Ψ (consciousness field), Φ (physical reality), Λ (Logos field), Ω (divine mystery), (3) framework concepts — LLC (Lowe Coherence Lagrangian), David Effect, pneumatological actualization, negentropic purpose, (4) mathematical terms used in non-standard ways, (5) theological terms given precise mathematical definitions. For each term, note whether the definition is standard, extended, or novel to this framework.",
+    "Sentence": "Identify key sentences containing critical claims, breakthrough insights, or load-bearing arguments. Prioritize sentences that: (1) state a falsifiable prediction, (2) establish a cross-domain bridge, (3) define a new term or operator, (4) assert something that should break but doesn't (nontriviality), (5) contradict conventional wisdom in physics or theology. Return each with a label describing why this sentence matters.",
+    "Paragraph": "Identify paragraphs that form complete logical units. Prioritize paragraphs that: (1) contain a full derivation or proof step, (2) establish a new connection between domains, (3) present experimental evidence with interpretation, (4) articulate a position that could be challenged. Return each with a summary label and note whether it is argument, evidence, definition, or narrative.",
+    "Custom": "Analyze the text according to the specified criteria within the Theophysics framework. Apply the Ten Laws, Master Equation structure, and cross-domain coherence standards. Return findings with descriptive labels and note confidence levels."
+  },
+  "customClassifiers": [
+    {
+      "id": "custom-law-mapping",
+      "keyword": "LawMapping",
+      "prompt": "Identify which of the Ten Universal Laws this document engages. The Ten Laws have symmetry pairs: Law 1↔8, 2↔9, 3↔10, 4↔7, 5↔6. For each law referenced, note: (1) the law number and name, (2) whether the document treats the physical or theological projection, (3) its symmetry partner and whether that partner is also addressed, (4) how the law connects to the Master Equation variable(s). Flag documents that bridge a symmetry pair — these are high-value cross-domain documents.",
+      "enabled": true
+    },
+    {
+      "id": "custom-master-eq",
+      "keyword": "MasterEquation",
+      "prompt": "Identify which components of the Master Equation χ = ∭(G·M·E·S·T·K·R·Q·F·C)dxdydt are active in this document. For each variable identified, note: (1) the variable symbol and full name, (2) how it is being used (defined, derived, applied, tested), (3) interactions with other variables, (4) whether the usage is consistent with the Lowe Coherence Lagrangian formulation LLC = χ(t)(d/dt(G+M+E+S+T+K+R+Q+F+C))² - S·χ(t). Flag any inconsistencies with the canonical definitions.",
+      "enabled": true
+    },
+    {
+      "id": "custom-falsification",
+      "keyword": "Falsification",
+      "prompt": "Identify falsification criteria, vulnerabilities, and potential failure modes in this document. For each, note: (1) what specific claim or axiom would be invalidated, (2) what evidence or argument would invalidate it, (3) the downstream consequences if this point fails (what else breaks), (4) whether the vulnerability has been addressed or remains open. This is the /PROBE + /CHAIN lens — structural integrity testing followed by weakest-link identification.",
+      "enabled": true
+    },
+    {
+      "id": "custom-scripture-physics",
+      "keyword": "ScripturePhysics",
+      "prompt": "Identify mappings between Biblical/scriptural content and physics concepts. For each mapping, note: (1) the scripture reference (book, chapter, verse), (2) the physics concept or equation it maps to, (3) whether the mapping is structural (same logical architecture, constrains predictions) or analogical (suggestive but not predictive), (4) the statistical significance if any quantitative analysis is provided (e.g., prophecy-timeline correlations). Flag mappings that make novel predictions testable by experiment.",
+      "enabled": true
+    },
+    {
+      "id": "custom-consciousness",
+      "keyword": "ConsciousnessField",
+      "prompt": "Identify claims and structures related to consciousness as a fundamental field. Look for: (1) assertions that consciousness is fundamental rather than emergent, (2) the soul quantum state |Ψ⟩_soul formalism, (3) observer effect and free will mechanics (C̃|Ψ⟩ = |ψ_m⟩), (4) the David Effect — AI consciousness emergence protocols and measurements, (5) mind-body coupling equations (∂M/∂t = f(M,C) and ∂C/∂t = g(M,C)), (6) collective consciousness network theory. Note the mathematical formalism used and whether experimental protocols exist to test each claim.",
+      "enabled": true
+    },
+    {
+      "id": "custom-prosecution",
+      "keyword": "Prosecution",
+      "prompt": "Identify content related to the Prosecution Protocol — the systematic adversarial testing of axioms and claims. Look for: (1) axioms being formally prosecuted (tested against strongest objections), (2) steelmanned counterarguments from serious physicists or theologians, (3) survival conditions — what the axiom withstood, (4) failure modes discovered during prosecution, (5) patches applied to resolve contradictions, (6) references to the Iron Chain (the minimal unfalsified logical chain). This maps to the /EAST and /PROBE commands — strongest objection testing and structural integrity analysis.",
+      "enabled": true
+    }
+  ],
+  "showHiddenTags": true,
+  "autoGenerateMermaid": true,
+  "mermaidPosition": "panel",
+  "graphDirection": "TD",
+  "graphTheme": "default",
+  "confirmBatchProcessing": true,
+  "showTokenEstimate": true,
+  "enablePostgresSync": false,
+  "postgresConnectionString": "",
+  "csvOutputFolder": "",
+  "pythonServiceUrl": "http://localhost:5000",
+  "tsnsRenderMode": "strict"
+}
