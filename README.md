@@ -9,8 +9,8 @@ This branch contains a complete handoff bundle for the Obsidian Semantic AI plug
   - `main.js` contains the active classification engine
   - Prompt packs updated in current cycle
 - `reference/`
-  - 6 canonical reference documents for tag meaning and display behavior
-  - Includes taxonomy, framing, matrix, and CSS display rules
+  - 7 canonical reference documents for tag meaning, schema behavior, and display rules
+  - Includes taxonomy, master YAML schema, framing, matrix, and CSS display rules
 - `BUILD_SPEC.md`
   - Build instructions for the next implementation pass
   - Defines what already works, what to add, and what must remain unchanged

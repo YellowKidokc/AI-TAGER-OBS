@@ -117,6 +117,14 @@ domain: [physics, theology]
 This is the document-level summary. The inline tags are
 paragraph-level detail. Both should be generated in one pass.
 
+#### Full-schema compatibility requirement
+
+Compressed frontmatter is the transport format for fast note tagging.
+When the user requests expanded metadata, map generated output to
+`reference/THEOPHYSICS_MASTER_YAML_SCHEMA_v1.0.md` and respect its
+layer activation rules (L1/L2 always; conditional layers only when
+materially engaged).
+
 
 ## THE 79 CANONICAL TAGS (complete reference in CANONICAL_TAG_TAXONOMY.md)
 
