@@ -126,6 +126,21 @@ layer activation rules (L1/L2 always; conditional layers only when
 materially engaged).
 
 
+### Feature 5: EXTENDED MACHINE TAG REGISTRY + RELATIONSHIP SCAN
+
+The scanner must ingest an extended machine registry (target scale: 400-500+ metrics)
+and map each hit to canonical tags + graph relationship semantics.
+
+Reference files:
+- `reference/THEOPHYSICS_MACHINE_TAG_REGISTRY_v1.0.tsv` (machine codes, canonical tags, node types)
+- `reference/TAG_SCAN_AND_RELATIONSHIP_SPEC_v1.0.md` (invisible HTML + YAML + graph contract)
+
+Required behavior:
+1. Scan paragraphs against machine codes, canonical tags, aliases, and semantic similarity
+2. Emit invisible HTML comment markers per paragraph
+3. Emit compressed YAML summary including `codes`, `tags`, and `relationships`
+4. Emit relationship buckets: `depends_on`, `supports`, `contradicts`, `tests`, `extends`, `bridges`, `attacks`
+
 ## THE 79 CANONICAL TAGS (complete reference in CANONICAL_TAG_TAXONOMY.md)
 
 Content types (7): axiom, claim, law, evidence, equation, prediction, definition

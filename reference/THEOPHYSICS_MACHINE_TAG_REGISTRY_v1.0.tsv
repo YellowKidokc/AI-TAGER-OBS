@@ -1,0 +1,172 @@
+CODE	FAMILY	PREFIX	YAML_FIELD	FULL_CONCEPT	CANONICAL_TAG	GRAPH_NODE_TYPE	ACTIVE
+Pph	PILLAR	P	domain	Physics	pillar/physics	Domain	Y
+Pth	PILLAR	P	domain	Theology	pillar/theology	Domain	Y
+Pma	PILLAR	P	domain	Mathematics	pillar/mathematics	Domain	Y
+Pmi	PILLAR	P	domain	Philosophy of Mind	pillar/philosophy-of-mind	Domain	Y
+Lgr	LOGOS	L	domain	Grace	logos/grace	Concept	Y
+Lfi	LOGOS	L	domain	Field	logos/field	Concept	Y
+Leq	LOGOS	L	domain	Equation	logos/equation	Concept	Y
+Lth	LOGOS	L	domain	Theorem	logos/theorem	Concept	Y
+Lpr	LOGOS	L	domain	Principle	logos/principle	Concept	Y
+Xg	CHI VARIABLE	X	vars	G - Grace/Negentropy	χ_var/G	Variable	Y
+Xm	CHI VARIABLE	X	vars	M - Mutual Information	χ_var/M	Variable	Y
+Xe	CHI VARIABLE	X	vars	E - Entanglement Entropy	χ_var/E	Variable	Y
+Xs	CHI VARIABLE	X	vars	S - Entropy/Emergent Order	χ_var/S	Variable	Y
+Xt	CHI VARIABLE	X	vars	T - Teleological Tension	χ_var/T	Variable	Y
+Xk	CHI VARIABLE	X	vars	K - Kairos Synchronization	χ_var/K	Variable	Y
+Xr	CHI VARIABLE	X	vars	R - Relational Coherence	χ_var/R	Variable	Y
+Xq	CHI VARIABLE	X	vars	Q - Quantum Coherence	χ_var/Q	Variable	Y
+Xf	CHI VARIABLE	X	vars	F - Faith/Confidence	χ_var/F	Variable	Y
+Xc	CHI VARIABLE	X	vars	C - Covenant Fidelity	χ_var/C	Variable	Y
+D01	DEEP LAW	D	laws	Law 01 - Conservation of Grace	law/Law01	Law	Y
+D02	DEEP LAW	D	laws	Law 02 - Entropic Redemption	law/Law02	Law	Y
+D03	DEEP LAW	D	laws	Law 03 - Relational Coherence	law/Law03	Law	Y
+D04	DEEP LAW	D	laws	Law 04 - Kairos Emergence	law/Law04	Law	Y
+D05	DEEP LAW	D	laws	Law 05 - Quantum Covenant	law/Law05	Law	Y
+D06	DEEP LAW	D	laws	Law 06 - Information Ontology	law/Law06	Law	Y
+D07	DEEP LAW	D	laws	Law 07 - Teleological Gradient	law/Law07	Law	Y
+D08	DEEP LAW	D	laws	Law 08 - Faith Resonance	law/Law08	Law	Y
+D09	DEEP LAW	D	laws	Law 09 - Consciousness Threshold	law/Law09	Law	Y
+D10	DEEP LAW	D	laws	Law 10 - Unified Field	law/Law10	Law	Y
+W01	PAPER	W	paper	P01 - Master Framework	paper/P01	Paper	Y
+W02	PAPER	W	paper	P02 - Quantum Theology	paper/P02	Paper	Y
+W03	PAPER	W	paper	P03 - Consciousness Field	paper/P03	Paper	Y
+W04	PAPER	W	paper	P04 - Entropy Ethics	paper/P04	Paper	Y
+W05	PAPER	W	paper	P05 - Temporal Theology	paper/P05	Paper	Y
+W06	PAPER	W	paper	P06 - Information Ontology	paper/P06	Paper	Y
+W07	PAPER	W	paper	P07 - Grace Function	paper/P07	Paper	Y
+W08	PAPER	W	paper	P08 - Relational Coherence	paper/P08	Paper	Y
+W09	PAPER	W	paper	P09 - Kairos Theory	paper/P09	Paper	Y
+W10	PAPER	W	paper	P10 - Covenant Logic	paper/P10	Paper	Y
+W11	PAPER	W	paper	P11 - Faith Epistemology	paper/P11	Paper	Y
+W12	PAPER	W	paper	P12 - Unified Synthesis	paper/P12	Paper	Y
+Ggf	ISOMORPHISM	G	pairs	Grace ↔ Negentropy	isomorphism/Grace-Negentropy	Pair	Y
+Gin	ISOMORPHISM	G	pairs	Incarnation ↔ Measurement	isomorphism/Incarnation-Measurement	Pair	Y
+Gre	ISOMORPHISM	G	pairs	Resurrection ↔ Phase Transition	isomorphism/Resurrection-Phase	Pair	Y
+Gpr	ISOMORPHISM	G	pairs	Prayer ↔ Quantum Coherence	isomorphism/Prayer-Coherence	Pair	Y
+Gcv	ISOMORPHISM	G	pairs	Covenant ↔ Entanglement	isomorphism/Covenant-Entanglement	Pair	Y
+Gka	ISOMORPHISM	G	pairs	Kairos ↔ Synchronization	isomorphism/Kairos-Sync	Pair	Y
+sin-ent	FORCED	-	forced	Sin-Entropy Correspondence	forced/sin-entropy	Forced	Y
+grace-neg	FORCED	-	forced	Grace-Negentropy Correspondence	forced/grace-negentropy	Forced	Y
+love	FRUIT	-	fruits	Love = coherent integration	fruit/love	Fruit	Y
+joy	FRUIT	-	fruits	Joy = positive coherence gradient	fruit/joy	Fruit	Y
+peace	FRUIT	-	fruits	Peace = no internal contradiction	fruit/peace	Fruit	Y
+patience	FRUIT	-	fruits	Patience = temporal consistency	fruit/patience	Fruit	Y
+kindness	FRUIT	-	fruits	Kindness = coherence transfer rate	fruit/kindness	Fruit	Y
+goodness	FRUIT	-	fruits	Goodness = constructive output	fruit/goodness	Fruit	Y
+faithfulness	FRUIT	-	fruits	Faithfulness = commitment consistency	fruit/faithfulness	Fruit	Y
+gentleness	FRUIT	-	fruits	Gentleness = force calibration	fruit/gentleness	Fruit	Y
+self-control	FRUIT	-	fruits	Self-control = impulse resistance	fruit/self-control	Fruit	Y
+Rhe	MIRACLE	R	domain	Healing	miracle/healing	Event	Y
+Rna	MIRACLE	R	domain	Nature Override	miracle/nature-override	Event	Y
+Rre	MIRACLE	R	domain	Resurrection	miracle/resurrection	Event	Y
+Rpr	MIRACLE	R	domain	Provision	miracle/provision	Event	Y
+Eap	EXPERIMENT	E	domain	APCT - Prayer Coherence	experiment/APCT	Experiment	Y
+Elc	EXPERIMENT	E	domain	LCM - Logos Coherence	experiment/LCM	Experiment	Y
+Emi	EXPERIMENT	E	domain	MIB - Mutual Info Baseline	experiment/MIB	Experiment	Y
+Ekd	EXPERIMENT	E	domain	KDE - Kairos Detection	experiment/KDE	Experiment	Y
+Tfa	TRINITY	T	domain	Father	trinity/Father	Person	Y
+Tso	TRINITY	T	domain	Son / Jesus	trinity/Son	Person	Y
+Tho	TRINITY	T	domain	Holy Spirit	trinity/HolySpirit	Person	Y
+Ttr	TRINITY	T	domain	Trinitarian Unity	trinity/Unity	Relation	Y
+Tcr	TRINITY	T	domain	Creator	trinity/Father/Creator	Attribute	Y
+Tsu	TRINITY	T	domain	Sustainer	trinity/Father/Sustainer	Attribute	Y
+Tla	TRINITY	T	domain	Lawgiver	trinity/Father/Lawgiver	Attribute	Y
+Tin	TRINITY	T	domain	Incarnation	trinity/Son/Incarnation	Event	Y
+Trd	TRINITY	T	domain	Redeemer	trinity/Son/Redeemer	Attribute	Y
+Tme	TRINITY	T	domain	Mediator	trinity/Son/Mediator	Attribute	Y
+Twd	TRINITY	T	domain	Word/Logos	trinity/Son/Word	Attribute	Y
+Tju	TRINITY	T	domain	Judge	trinity/Son/Judge	Attribute	Y
+Tsa	TRINITY	T	domain	Sanctifier	trinity/Spirit/Sanctifier	Attribute	Y
+Til	TRINITY	T	domain	Illuminator	trinity/Spirit/Illuminator	Attribute	Y
+Tco	TRINITY	T	domain	Comforter	trinity/Spirit/Comforter	Attribute	Y
+Tun	TRINITY	T	domain	Unifier	trinity/Spirit/Unifier	Attribute	Y
+Kax	CLASSIFICATION	K	classification	Axiom	classification/Axiom	Type	Y
+Kth	CLASSIFICATION	K	classification	Theorem	classification/Theorem	Type	Y
+Kco	CLASSIFICATION	K	classification	Corollary	classification/Corollary	Type	Y
+Kle	CLASSIFICATION	K	classification	Lemma	classification/Lemma	Type	Y
+Kdf	CLASSIFICATION	K	classification	Definition	classification/Definition	Type	Y
+Khy	CLASSIFICATION	K	classification	Hypothesis	classification/Hypothesis	Type	Y
+Kpr	CLASSIFICATION	K	classification	Proof	classification/Proof	Type	Y
+Knt	CLASSIFICATION	K	classification	Note/Reflection	classification/Note	Type	Y
+Kfr	CLASSIFICATION	K	classification	Framework	classification/Framework	Type	Y
+Kre	CLASSIFICATION	K	classification	Review/Survey	classification/Review	Type	Y
+Kda	CLASSIFICATION	K	classification	Data/Dataset	classification/Data	Type	Y
+S0	STATUS	S	status	Stub / Placeholder	status/0_stub	Status	Y
+S1	STATUS	S	status	Seed / Idea	status/1_seed	Status	Y
+S2	STATUS	S	status	Draft	status/2_draft	Status	Y
+S3	STATUS	S	status	Working Draft	status/3_working	Status	Y
+S4	STATUS	S	status	Review Ready	status/4_review	Status	Y
+S5	STATUS	S	status	Published / Final	status/5_published	Status	Y
+S6	STATUS	S	status	Archived	status/6_archived	Status	Y
+S7	STATUS	S	status	Deprecated	status/7_deprecated	Status	Y
+N1	TIER	N	tier	Foundation	tier/FOUNDATION	Tier	Y
+N2	TIER	N	tier	Structure	tier/STRUCTURE	Tier	Y
+N3	TIER	N	tier	Bridge	tier/BRIDGE	Tier	Y
+N4	TIER	N	tier	Synthesis	tier/SYNTHESIS	Tier	Y
+Yfo	SCOPE	Y	scope	Foundational	scope/foundational	Scope	Y
+Yde	SCOPE	Y	scope	Derived	scope/derived	Scope	Y
+Yex	SCOPE	Y	scope	Experimental	scope/experimental	Scope	Y
+Ysp	SCOPE	Y	scope	Speculative	scope/speculative	Scope	Y
+Yed	SCOPE	Y	scope	Editorial	scope/editorial	Scope	Y
+Yop	SCOPE	Y	scope	Operational	scope/operational	Scope	Y
+Ydv	SCOPE	Y	scope	Devotional	scope/devotional	Scope	Y
+Zhi	CONFIDENCE	Z	confidence	High	confidence/high	Confidence	Y
+Zme	CONFIDENCE	Z	confidence	Medium	confidence/medium	Confidence	Y
+Zlo	CONFIDENCE	Z	confidence	Low	confidence/low	Confidence	Y
+Zco	CONFIDENCE	Z	confidence	Contested	confidence/contested	Confidence	Y
+Nt1	TIER CLASS	N	classification_tier	Tier 1 Foundational	tier/tier_1_foundational	Tier	Y
+Nt2	TIER CLASS	N	classification_tier	Tier 2 Derived	tier/tier_2_derived	Tier	Y
+Nt3	TIER CLASS	N	classification_tier	Tier 3 Constraint	tier/tier_3_constraint	Tier	Y
+Nt4	TIER CLASS	N	classification_tier	Tier 4 Support	tier/tier_4_support	Tier	Y
+Nt5	TIER CLASS	N	classification_tier	Tier 5 Connection	tier/tier_5_connection	Tier	Y
+OQ0	Q-LEVEL	O	tree_position	Q0 Bedrock	q_level/Q0	TreeNode	Y
+OQ1	Q-LEVEL	O	tree_position	Q1 Distinction	q_level/Q1	TreeNode	Y
+OQ2	Q-LEVEL	O	tree_position	Q2 Information Fork	q_level/Q2	TreeNode	Y
+OQ3	Q-LEVEL	O	tree_position	Q3 Order	q_level/Q3	TreeNode	Y
+OQ4	Q-LEVEL	O	tree_position	Q4 Great Fork	q_level/Q4	TreeNode	Y
+OQ5	Q-LEVEL	O	tree_position	Q5 Properties of Ground	q_level/Q5	TreeNode	Y
+OQ6	Q-LEVEL	O	tree_position	Q6 Observer Requirement	q_level/Q6	TreeNode	Y
+OQ7	Q-LEVEL	O	tree_position	Q7 Terminal Observer	q_level/Q7	TreeNode	Y
+OQ8	Q-LEVEL	O	tree_position	Q8 Boundary Conditions	q_level/Q8	TreeNode	Y
+OQ9	Q-LEVEL	O	tree_position	Q9 Identification	q_level/Q9	TreeNode	Y
+OQ10	Q-LEVEL	O	tree_position	Q10 Sign Structure	q_level/Q10	TreeNode	Y
+OQ11	Q-LEVEL	O	tree_position	Q11 Destiny	q_level/Q11	TreeNode	Y
+OQ12	Q-LEVEL	O	tree_position	Q12 Uniqueness Test	q_level/Q12	TreeNode	Y
+OT1	QUESTION TYPE	O	tree_position	Type1 Binary	question_type/Type1	TreeMeta	Y
+OT2	QUESTION TYPE	O	tree_position	Type2 Ontological	question_type/Type2	TreeMeta	Y
+OT3	QUESTION TYPE	O	tree_position	Type3 Explanatory	question_type/Type3	TreeMeta	Y
+OT4	QUESTION TYPE	O	tree_position	Type4 Constraint	question_type/Type4	TreeMeta	Y
+Osr	DEATH CONDITION	O	death_condition	SelfRefutation	death/SelfRefutation	DeathMode	Y
+Oir	DEATH CONDITION	O	death_condition	InfiniteRegress	death/InfiniteRegress	DeathMode	Y
+Oec	DEATH CONDITION	O	death_condition	EmpiricalContradiction	death/EmpiricalContradiction	DeathMode	Y
+Oli	DEATH CONDITION	O	death_condition	LogicalIncoherence	death/LogicalIncoherence	DeathMode	Y
+Oet	DEATH CONDITION	O	death_condition	ExplanatoryTerminal	death/ExplanatoryTerminal	DeathMode	Y
+Oci	DEATH CONDITION	O	death_condition	Circular	death/Circular	DeathMode	Y
+Oco	DEATH CONDITION	O	death_condition	Collapses	death/Collapses	DeathMode	Y
+Opt	PROPAGATION	O	propagation_status	Untested	prop/untested	PropStatus	Y
+Opl	PROPAGATION	O	propagation_status	Local Only	prop/local_only	PropStatus	Y
+Opc	PROPAGATION	O	propagation_status	Propagates Cleanly	prop/propagates_cleanly	PropStatus	Y
+Ops	PROPAGATION	O	propagation_status	Strained Downstream	prop/strained_downstream	PropStatus	Y
+Opb	PROPAGATION	O	propagation_status	Breaks Downstream	prop/breaks_downstream	PropStatus	Y
+Bgr	OPERATION	B	operation	GROUND	op/GROUND	Operation	Y
+Bch	OPERATION	B	operation	CHAIN	op/CHAIN	Operation	Y
+Bat	OPERATION	B	operation	ATTACK	op/ATTACK	Operation	Y
+Bbr	OPERATION	B	operation	BRIDGE	op/BRIDGE	Operation	Y
+Ban	OPERATION	B	operation	ANCHOR	op/ANCHOR	Operation	Y
+Bde	OPERATION	B	operation	DECLARE	op/DECLARE	Operation	Y
+EDdp	EDGE TYPE	ED	edge_type	Depends On	edge/depends_on	Edge	Y
+EDsp	EDGE TYPE	ED	edge_type	Supports	edge/supports	Edge	Y
+EDcn	EDGE TYPE	ED	edge_type	Contradicts	edge/contradicts	Edge	Y
+EDts	EDGE TYPE	ED	edge_type	Tests	edge/tests	Edge	Y
+EDex	EDGE TYPE	ED	edge_type	Extends	edge/extends	Edge	Y
+EDbr	EDGE TYPE	ED	edge_type	Bridges	edge/bridges	Edge	Y
+EDat	EDGE TYPE	ED	edge_type	Attacks	edge/attacks	Edge	Y
+BC1	BOUNDARY COND	BC	boundary_condition	BC1 Terminal Observer (Φ=∞)	bc/BC1	Constraint	Y
+BC2	BOUNDARY COND	BC	boundary_condition	BC2 Grace External	bc/BC2	Constraint	Y
+BC3	BOUNDARY COND	BC	boundary_condition	BC3 Measurement Orthogonal	bc/BC3	Constraint	Y
+BC4	BOUNDARY COND	BC	boundary_condition	BC4 N_observers=3	bc/BC4	Constraint	Y
+BC5	BOUNDARY COND	BC	boundary_condition	BC5 Superposition Preserved	bc/BC5	Constraint	Y
+BC6	BOUNDARY COND	BC	boundary_condition	BC6 Infinite Energy Source	bc/BC6	Constraint	Y
+BC7	BOUNDARY COND	BC	boundary_condition	BC7 Info Conservation	bc/BC7	Constraint	Y
+BC8	BOUNDARY COND	BC	boundary_condition	BC8 Voluntary Coupling	bc/BC8	Constraint	Y
