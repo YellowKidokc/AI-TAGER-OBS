@@ -317,7 +317,10 @@ var DEFAULT_SETTINGS = {
   theophysicsMaxAxiomsInContext: 12,
   theophysicsExamplesPerType: 3,
   theophysicsStructuralTypes: [...THEOPHYSICS_STRUCTURAL_DEFAULT_TYPES],
-  tsnsRenderMode: "legacy"
+  tsnsRenderMode: "legacy",
+  machineTagPromptMode: "assist",
+  machineTagRegistryPath: "reference/THEOPHYSICS_MACHINE_TAG_REGISTRY_v1.0.tsv",
+  machineTagRefinements: []
 };
 
 // src/settings.ts
@@ -455,6 +458,65 @@ var PromptManager = class {
     return (this.settings.customClassifiers || []).find((c) => c.enabled && c.keyword.toLowerCase() === keyword.toLowerCase());
   }
   /**
+   * Get machine tag refinement rows
+   */
+  getMachineTagRefinements() {
+    return Array.isArray(this.settings.machineTagRefinements) ? this.settings.machineTagRefinements : [];
+  }
+  /**
+   * Add or update a refinement row for a machine tag
+   */
+  upsertMachineTagRefinement(entry) {
+    const code = (entry.code || "").trim();
+    const tag = (entry.tag || "").trim();
+    const description = (entry.description || "").trim();
+    if (!code || !tag || !description) {
+      return false;
+    }
+    if (!Array.isArray(this.settings.machineTagRefinements)) {
+      this.settings.machineTagRefinements = [];
+    }
+    const idx = this.settings.machineTagRefinements.findIndex((item) => (item.code || "").toLowerCase() === code.toLowerCase() || (item.tag || "").toLowerCase() === tag.toLowerCase());
+    const normalized = {
+      code,
+      tag,
+      description,
+      enabled: entry.enabled !== false
+    };
+    if (idx >= 0) {
+      this.settings.machineTagRefinements[idx] = normalized;
+    } else {
+      this.settings.machineTagRefinements.push(normalized);
+    }
+    return true;
+  }
+  removeMachineTagRefinement(code, tag) {
+    const codeNorm = (code || "").toLowerCase();
+    const tagNorm = (tag || "").toLowerCase();
+    this.settings.machineTagRefinements = this.getMachineTagRefinements().filter((item) => {
+      const itemCode = (item.code || "").toLowerCase();
+      const itemTag = (item.tag || "").toLowerCase();
+      return !(itemCode === codeNorm || itemTag === tagNorm);
+    });
+  }
+  buildMachineTagRefinementSection() {
+    const mode = this.settings.machineTagPromptMode || "assist";
+    if (mode === "off") {
+      return "";
+    }
+    const refinements = this.getMachineTagRefinements().filter((entry) => entry && entry.enabled !== false && entry.code && entry.tag && entry.description);
+    if (refinements.length === 0) {
+      return "";
+    }
+    const lines = refinements.slice(0, 120).map((entry) => `- ${entry.code} | ${entry.tag} => ${entry.description}`);
+    return `
+
+Machine Tag Refinements (authoritative disambiguation hints):
+- Prefer these refinements whenever a listed machine code or canonical tag appears.
+- If a match is ambiguous, keep confidence <= 0.6 and avoid over-tagging.
+${lines.join("\n")}`;
+  }
+  /**
    * Build strict TSNS metadata schema instructions
    */
   buildStrictMetadataInstructions(types) {
@@ -568,7 +630,8 @@ ${prompt}`;
     }).join("\n");
     const contextSection = this.buildContextSection(context, types);
     const strictSection = this.buildStrictMetadataInstructions(types);
-    return `${header}${definitions}${contextSection}${strictSection}`;
+    const refinementSection = this.buildMachineTagRefinementSection();
+    return `${header}${definitions}${contextSection}${strictSection}${refinementSection}`;
   }
   /**
    * Build user prompt with content
@@ -590,11 +653,13 @@ JSON Response:`;
     const prompt = this.getPrompt(type);
     const contextSection = this.buildContextSection(context, [type]);
     const strictSection = this.buildStrictMetadataInstructions([type]);
+    const refinementSection = this.buildMachineTagRefinementSection();
     return `You are a semantic analysis AI. Your task is to identify ${this.getTagTypeName(type)} in the given text.
 
 ${prompt}
 ${contextSection}
 ${strictSection}
+${refinementSection}
 
 Output format: Return a JSON array of objects. Each object must have:
 - "type": "${type}"
@@ -615,10 +680,12 @@ JSON Response:`;
    * Build prompt for custom classifier
    */
   buildCustomClassifierPrompt(content, classifier) {
+    const refinementSection = this.buildMachineTagRefinementSection();
     return `You are a semantic analysis AI. Your task is to analyze text according to custom criteria.
 
 Custom Classifier: ${classifier.keyword}
 Instructions: ${classifier.prompt}
+${refinementSection}
 
 Output format: Return a JSON array of objects. Each object must have:
 - "type": "Custom"
@@ -683,7 +750,9 @@ JSON Response:`;
   exportPrompts() {
     return JSON.stringify({
       prompts: this.settings.prompts,
-      customClassifiers: this.settings.customClassifiers
+      customClassifiers: this.settings.customClassifiers,
+      machineTagRefinements: this.settings.machineTagRefinements,
+      machineTagPromptMode: this.settings.machineTagPromptMode
     }, null, 2);
   }
   /**
@@ -697,6 +766,12 @@ JSON Response:`;
       }
       if (data.customClassifiers) {
         this.settings.customClassifiers = data.customClassifiers;
+      }
+      if (Array.isArray(data.machineTagRefinements)) {
+        this.settings.machineTagRefinements = data.machineTagRefinements;
+      }
+      if (typeof data.machineTagPromptMode === "string") {
+        this.settings.machineTagPromptMode = data.machineTagPromptMode;
       }
     } catch (error) {
       throw new Error("Invalid prompt configuration JSON");
@@ -2175,6 +2250,85 @@ var SemanticAISettingTab = class extends import_obsidian3.PluginSettingTab {
       text.setPlaceholder("Example: 00_Canonical/_Axiom_CSV").setValue(this.plugin.settings.csvOutputFolder || "").onChange(async (value) => {
         this.plugin.settings.csvOutputFolder = value;
         await this.plugin.saveSettings();
+      });
+    });
+    containerEl.createEl("h3", { text: "Machine Tag Prompt Refinement" });
+    containerEl.createEl("p", {
+      text: "Add/adjust machine tag descriptions that the AI should prioritize when there is ambiguity."
+    });
+    new import_obsidian3.Setting(containerEl).setName("Machine Tag Prompt Mode").setDesc("Assist injects refinements into classifier prompts. Off disables refinement injection.").addDropdown((dropdown) => {
+      dropdown.addOption("assist", "Assist (recommended)").addOption("off", "Off").setValue(this.plugin.settings.machineTagPromptMode || "assist").onChange(async (value) => {
+        this.plugin.settings.machineTagPromptMode = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian3.Setting(containerEl).setName("Machine Tag Registry Path").setDesc("Vault-relative TSV path used as primary machine tag registry.").addText((text) => {
+      text.setPlaceholder("reference/THEOPHYSICS_MACHINE_TAG_REGISTRY_v1.0.tsv").setValue(this.plugin.settings.machineTagRegistryPath || "").onChange(async (value) => {
+        this.plugin.settings.machineTagRegistryPath = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    let newCode = "";
+    let newTag = "";
+    let newDescription = "";
+    const refinementListEl = containerEl.createEl("div", { cls: "semantic-ai-classifier-list" });
+    const renderRefinementList = () => {
+      refinementListEl.empty();
+      const rows = Array.isArray(this.plugin.settings.machineTagRefinements) ? this.plugin.settings.machineTagRefinements : [];
+      if (rows.length === 0) {
+        refinementListEl.createEl("p", { cls: "semantic-ai-empty-state", text: "No machine tag refinements yet." });
+        return;
+      }
+      rows.forEach((entry) => {
+        const row = refinementListEl.createEl("div", { cls: "semantic-ai-classifier-item" });
+        row.createEl("strong", { text: `${entry.code || "?"} -> ${entry.tag || "?"}` });
+        row.createEl("p", { text: entry.description || "" });
+        new import_obsidian3.Setting(row).setName("Enabled").addToggle((toggle) => {
+          toggle.setValue(entry.enabled !== false).onChange(async (value) => {
+            entry.enabled = value;
+            await this.plugin.saveSettings();
+          });
+        }).addExtraButton((button) => {
+          button.setIcon("trash").setTooltip("Delete refinement").onClick(async () => {
+            this.promptManager.removeMachineTagRefinement(entry.code, entry.tag);
+            await this.plugin.saveSettings();
+            renderRefinementList();
+          });
+        });
+      });
+    };
+    renderRefinementList();
+    new import_obsidian3.Setting(containerEl).setName("Refinement Code").setDesc("Machine code, e.g., Xg, D01, BC4.").addText((text) => {
+      text.setPlaceholder("Xg").onChange((value) => {
+        newCode = value;
+      });
+    });
+    new import_obsidian3.Setting(containerEl).setName("Canonical Tag").setDesc("Canonical tag path for this code.").addText((text) => {
+      text.setPlaceholder("χ_var/G").onChange((value) => {
+        newTag = value;
+      });
+    });
+    new import_obsidian3.Setting(containerEl).setName("Descriptive Prompt").setDesc("Short disambiguation hint the AI should follow for this code/tag.").addTextArea((text) => {
+      text.setPlaceholder("Use when paragraph discusses grace as external negentropy operator.").onChange((value) => {
+        newDescription = value;
+      });
+      text.inputEl.rows = 3;
+    });
+    new import_obsidian3.Setting(containerEl).setName("Add / Update Refinement").setDesc("Create or update a machine tag refinement row.").addButton((button) => {
+      button.setButtonText("Save refinement").setCta().onClick(async () => {
+        const ok = this.promptManager.upsertMachineTagRefinement({
+          code: newCode,
+          tag: newTag,
+          description: newDescription,
+          enabled: true
+        });
+        if (!ok) {
+          new import_obsidian3.Notice("Refinement requires code, canonical tag, and description.");
+          return;
+        }
+        await this.plugin.saveSettings();
+        renderRefinementList();
+        new import_obsidian3.Notice(`Saved refinement for ${newCode || newTag}`);
       });
     });
     containerEl.createEl("hr");
@@ -4599,6 +4753,52 @@ ${typeBreakdown}`,
       name: "Open Concept Journey",
       callback: async () => {
         await this.openConceptJourney();
+      }
+    });
+    this.addCommand({
+      id: "list-machine-tag-refinements",
+      name: "List Machine Tag Refinements",
+      callback: async () => {
+        const rows = Array.isArray(this.settings.machineTagRefinements) ? this.settings.machineTagRefinements : [];
+        if (rows.length === 0) {
+          new import_obsidian9.Notice("No machine tag refinements configured.");
+          return;
+        }
+        const lines = [
+          "# Machine Tag Refinements",
+          "",
+          "| CODE | TAG | ENABLED | DESCRIPTION |",
+          "|---|---|---|---|"
+        ];
+        for (const row of rows) {
+          lines.push(`| ${row.code || ""} | ${row.tag || ""} | ${row.enabled !== false ? "Y" : "N"} | ${(row.description || "").replace(/\|/g, "\\|")} |`);
+        }
+        const filePath = "machine-tag-refinements.md";
+        const content = lines.join("\n");
+        const existing = this.app.vault.getAbstractFileByPath(filePath);
+        if (existing && existing instanceof import_obsidian9.TFile) {
+          await this.app.vault.modify(existing, content);
+          await this.app.workspace.getLeaf(true).openFile(existing);
+        } else {
+          const created = await this.app.vault.create(filePath, content);
+          await this.app.workspace.getLeaf(true).openFile(created);
+        }
+        new import_obsidian9.Notice("Machine tag refinements listed in machine-tag-refinements.md");
+      }
+    });
+    this.addCommand({
+      id: "append-machine-tag-refinement-template",
+      name: "Append Machine Tag Refinement Template",
+      callback: async () => {
+        const file = this.app.workspace.getActiveFile();
+        if (!file || file.extension !== "md") {
+          new import_obsidian9.Notice("Open a markdown note first.");
+          return;
+        }
+        const template = "\n\n<!-- machine-tag-refinement\ncode: Xg\ntag: χ_var/G\ndescription: Clarify this tag definition for ambiguous passages.\nenabled: true\n-->\n";
+        const current = await this.app.vault.read(file);
+        await this.app.vault.modify(file, `${current}${template}`);
+        new import_obsidian9.Notice("Appended machine tag refinement template.");
       }
     });
   }
