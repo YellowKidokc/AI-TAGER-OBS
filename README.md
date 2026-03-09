@@ -9,8 +9,8 @@ This branch contains a complete handoff bundle for the Obsidian Semantic AI plug
   - `main.js` contains the active classification engine
   - Prompt packs updated in current cycle
 - `reference/`
-  - 6 canonical reference documents for tag meaning and display behavior
-  - Includes taxonomy, framing, matrix, and CSS display rules
+  - 9 canonical reference documents for taxonomy, schema, machine registry, and display rules
+  - Includes taxonomy, master YAML schema, framing, matrix, and CSS display rules
 - `BUILD_SPEC.md`
   - Build instructions for the next implementation pass
   - Defines what already works, what to add, and what must remain unchanged
@@ -47,3 +47,9 @@ Use `reference/CANONICAL_TAG_TAXONOMY.md` as the single source of truth for cano
 
 Primary test document: Turtles paper workflow.
 
+
+
+## Extended Machine Scan References
+
+- `reference/THEOPHYSICS_MACHINE_TAG_REGISTRY_v1.0.tsv` provides compact machine codes mapped to canonical tags and graph node types.
+- `reference/TAG_SCAN_AND_RELATIONSHIP_SPEC_v1.0.md` defines invisible HTML marker output, YAML aggregation output, and graph relationship buckets.
