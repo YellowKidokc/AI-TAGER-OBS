@@ -387,6 +387,10 @@ tags: [pillar/physics]
 tree_position:
   q_level: null
 edges:
+  depends_on:
+    - target: "UNRESOLVED_CONTEXT"
+      relationship: structurally
+      strength: weak
   related_papers: []
 notes: |
   Quick working note.
@@ -418,6 +422,21 @@ operation:
   op_result: "Participatory universe established"
   op_vulnerability: "Decoherence-only interpretation"
   op_unlocks: ["Q7 terminal observer", "BC1 derivation"]
+claims:
+  primary_claims:
+    - claim: "Observer participation is required for this branch."
+      type: logical
+      confidence: medium
+      support: "Q6-B derivation chain"
+      vulnerability: "Decoherence-only interpretation"
+      testable: false
+  evidence:
+    logical: ["Q6-B derivation"]
+  evidence_quality:
+    strongest: "Branch-level logical derivation"
+    weakest: "Interpretive dependence on measurement framing"
+    overall_assessment: medium
+  honest_blanks: []
 edges:
   depends_on:
     - target: "P01"

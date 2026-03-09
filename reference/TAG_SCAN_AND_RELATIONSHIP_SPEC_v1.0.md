@@ -61,6 +61,26 @@ Rules:
 - YAML summary is required whenever inline scanning runs.
 - Relationship buckets must be emitted even when empty.
 
+### Compressed frontmatter integration (normative)
+
+Scan payload does not replace existing compressed keys. It MUST be nested under:
+
+```yaml
+scan:
+  version: tphys-scan-v1
+  registry: theophysics-machine-v1.0
+  codes: []
+  tags: []
+  relationships:
+    depends_on: []
+    supports: []
+    contradicts: []
+    tests: []
+    extends: []
+    bridges: []
+    attacks: []
+```
+
 ---
 
 ## Relationship Extraction Contract
@@ -104,6 +124,36 @@ Tuple format (normalized internal form):
 4. De-duplicate by canonical tag key.
 
 ---
+
+## Canonical relationship mapping
+
+Scan edge names MUST map to canonical structural tags from
+`reference/CANONICAL_TAG_TAXONOMY.md`:
+
+| Scan relationship key | Canonical structural tag |
+|---|---|
+| `depends_on` | `dependency` |
+| `supports` | `supports` |
+| `contradicts` | `contradicts` |
+| `tests` | `falsification` |
+| `extends` | `enables` |
+| `bridges` | `isomorphism` |
+| `attacks` | `falsification` |
+
+## Expansion rule when relationships are empty
+
+If all scan relationship arrays are empty, expansion to master schema MUST still satisfy
+L20 (minimum one edge). Emit this synthetic weak edge:
+
+```yaml
+edges:
+  depends_on:
+    - target: "UNRESOLVED_CONTEXT"
+      relationship: "structurally"
+      strength: "weak"
+```
+
+Also append a note that no explicit relationship was detected during scan.
 
 ## Acceptance Criteria
 

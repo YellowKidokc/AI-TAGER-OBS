@@ -121,9 +121,12 @@ paragraph-level detail. Both should be generated in one pass.
 
 Compressed frontmatter is the transport format for fast note tagging.
 When the user requests expanded metadata, map generated output to
-`reference/THEOPHYSICS_MASTER_YAML_SCHEMA_v1.0.md` and respect its
-layer activation rules (L1/L2 always; conditional layers only when
-materially engaged).
+`reference/THEOPHYSICS_MASTER_YAML_SCHEMA_v1.0.md` and defer to it as
+normative for ALWAYS/conditional logic:
+- L1 Identity: ALWAYS
+- L2 Tree Position: ALWAYS
+- L18 Claims & Evidence: ALWAYS for `paper`, `axiom`, `theorem`, `hypothesis`
+- L20 Graph Edges: ALWAYS with minimum one edge
 
 
 ### Feature 5: EXTENDED MACHINE TAG REGISTRY + RELATIONSHIP SCAN
@@ -140,6 +143,33 @@ Required behavior:
 2. Emit invisible HTML comment markers per paragraph
 3. Emit compressed YAML summary including `codes`, `tags`, and `relationships`
 4. Emit relationship buckets: `depends_on`, `supports`, `contradicts`, `tests`, `extends`, `bridges`, `attacks`
+
+Integration rules (compressed + scan):
+- Scan output extends the existing compressed frontmatter and MUST be nested under `scan:`.
+- Existing top-level compressed keys (`vars`, `pairs`, `laws`, `forced`, etc.) remain unchanged.
+- Required nested shape:
+
+```yaml
+scan:
+  version: tphys-scan-v1
+  registry: theophysics-machine-v1.0
+  codes: []
+  tags: []
+  relationships:
+    depends_on: []
+    supports: []
+    contradicts: []
+    tests: []
+    extends: []
+    bridges: []
+    attacks: []
+```
+
+Zero-relationship expansion rule:
+- If all relationship buckets are empty at scan time, expansion to master schema MUST still satisfy L20.
+- In that case emit a synthetic weak edge:
+  - `edges.depends_on[0] = { target: "UNRESOLVED_CONTEXT", relationship: "structurally", strength: "weak" }`
+  - and add a note explaining no explicit relationship was detected during scan.
 
 ## THE 79 CANONICAL TAGS (complete reference in CANONICAL_TAG_TAXONOMY.md)
 

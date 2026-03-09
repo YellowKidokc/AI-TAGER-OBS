@@ -148,6 +148,25 @@
 
 ---
 
+
+## SCAN RELATIONSHIP KEY MAPPING
+
+For scanner interoperability, map scan relationship keys to canonical structural tags:
+
+| Scan key | Canonical structural tag |
+|---|---|
+| `depends_on` | `dependency` |
+| `supports` | `supports` |
+| `contradicts` | `contradicts` |
+| `tests` | `falsification` |
+| `extends` | `enables` |
+| `bridges` | `isomorphism` |
+| `attacks` | `falsification` |
+
+This mapping is normative for round-tripping scan output into canonical graph semantics.
+
+---
+
 ## USAGE RULES
 
 1. **Primary tags only.** Use the tag column, not aliases, in all systems.
